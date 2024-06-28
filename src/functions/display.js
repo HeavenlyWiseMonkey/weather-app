@@ -1,15 +1,4 @@
-import * as css from './index.css';
-import {getCurrentWeather, getForecast, processWeatherData, processForecastData} from './functions/api';
-
-const input = document.querySelector('input');
-
-input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        changeTodayWeatherText(input.value);
-        showForecast(input.value);
-        input.value = '';
-    }
-});
+import {getCurrentWeather, getForecast, processWeatherData, processForecastData} from './api';
 
 async function changeTodayWeatherText(inputData) {
     const currentWeather = await getCurrentWeather(inputData);
@@ -53,3 +42,4 @@ async function showForecast(inputData) {
     }
 }
 
+export {changeTodayWeatherText, showForecast};
