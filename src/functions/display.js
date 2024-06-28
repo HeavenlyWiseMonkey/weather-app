@@ -5,6 +5,7 @@ async function changeTodayWeatherText(inputData) {
     const weatherData = processWeatherData(currentWeather);
 
     const condition = document.querySelector('.condition');
+    const conditionIcon = document.querySelector('.conditionIcon');
     const location = document.querySelector('.location');
     const temperature = document.querySelector('.temperature');
     const feelsLike = document.querySelector('.feelsLike');
@@ -18,6 +19,8 @@ async function changeTodayWeatherText(inputData) {
     feelsLike.textContent = weatherData.feelslike_c;
     humidity.textContent = weatherData.humidity;
     windSpeed.textContent = weatherData.wind_kph;
+
+    conditionIcon.src = weatherData.condition_icon;
     // Add event listener in function
 }
 
@@ -29,6 +32,7 @@ async function showForecast(inputData) {
     const forecastDay = document.querySelectorAll('.forecastDay');
     const high = document.querySelectorAll('.high');
     const low = document.querySelectorAll('.low');
+    const icon = document.querySelectorAll('.icon');
 
     const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -39,6 +43,7 @@ async function showForecast(inputData) {
         high[i].textContent = nextForecastData.maxtemp_c;
         low[i].textContent = nextForecastData.mintemp_c;
         forecastDay[i].textContent = weekDay[nextForecastData.day];
+        icon[i].src = nextForecastData.icon;
     }
 }
 

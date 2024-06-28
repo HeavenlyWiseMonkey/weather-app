@@ -13,6 +13,7 @@ async function getForecast(location) {
 function processWeatherData(data) {
     const weatherData = {
         condition: data.current.condition.text,
+        condition_icon: 'https:' + data.current.condition.icon,
         feelslike_c: data.current.feelslike_c + ' °C',
         feelslike_f: data.current.feelslike_f + ' °F',
         temp_c: data.current.temp_c + ' °C',
@@ -34,6 +35,7 @@ function processForecastData(data) {
         mintemp_f: data.day.mintemp_f + ' °F',
         daily_chance_of_rain: data.day.daily_chance_of_rain + ' %',
         day: (forecastNum !== 7) ? forecastNum : 0,
+        icon: 'https:' + data.day.condition.icon,
     }
     return forecastData;
 }

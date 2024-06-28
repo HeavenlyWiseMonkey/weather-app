@@ -6,12 +6,15 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="main">
+    <div class="searchArea">
         <input type="text">
+        <button class="search">Search</button>
+    </div>
+    <div class="main">
         <div class="today">
             <div class="important">
                 <h1 class="condition"></h1>
-                <img src="">
+                <img class="conditionIcon" src="">
                 <h2 class="location"></h2>
                 <h1 class="temperature"></h1>
             </div>
@@ -30,15 +33,24 @@
         <div class="forecast">
             <div>
                 <h3 class="forecastDay"></h3>
-                <h2 class="high"></h2>
-                <h2 class="low"></h2>
+                <img class="icon" src="">
+                <div>
+                    <h2 class="high"></h2>
+                    <h2 class="low"></h2>
+                </div>
             </div>
             <div>
                 <h3 class="forecastDay"></h3>
-                <h2 class="high"></h2>
-                <h2 class="low"></h2>
+                <img class="icon" src="">
+                <div>
+                    <h2 class="high"></h2>
+                    <h2 class="low"></h2>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="footer">
+        <p>Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></p>
     </div>
 </body>
 </html>
