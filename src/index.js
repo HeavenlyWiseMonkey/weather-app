@@ -10,7 +10,7 @@ changeTodayWeatherText('Vancouver');
 showForecast('Vancouver');
 
 input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && input.value) {
         changeTodayWeatherText(input.value);
         showForecast(input.value);
         input.value = '';
@@ -18,10 +18,12 @@ input.addEventListener('keypress', (event) => {
 });
 
 search.addEventListener('click', () => {
-    changeTodayWeatherText(input.value);
-    showForecast(input.value);
-    input.value = '';
-})
+    if (input.value) {
+        changeTodayWeatherText(input.value);
+        showForecast(input.value);
+        input.value = '';
+    }
+});
 
 changeUnitsElement.addEventListener('click', () => {
     changeUnits();

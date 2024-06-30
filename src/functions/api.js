@@ -1,13 +1,24 @@
 async function getCurrentWeather(location) {
-    const response = await fetch('https://api.weatherapi.com/v1/current.json?key=42b61dadb6a94661aa3193323241606&q=' + location, {mode: 'cors'})
-    const currentWeather = await response.json();
-    return currentWeather;
+    const errorElement = document.querySelector('.error');
+    try {
+        const response = await fetch('https://api.weatherapi.com/v1/current.json?key=42b61dadb6a94661aa3193323241606&q=' + location, {mode: 'cors'});
+        if (response.ok === false) {
+            throw 'City not found';
+        }
+        const currentWeather = await response.json();
+        errorElement.textContent = '';
+        return currentWeather;
+    }
+    catch {
+        errorElement.textContent = 'City not found';
+    }
+
 }
 
 async function getForecast(location) {
-    const response = await fetch('https://api.weatherapi.com/v1/forecast.json?key=42b61dadb6a94661aa3193323241606&days=3&q=' + location, {mode: 'cors'})
+    const response = await fetch('https://api.weatherapi.com/v1/forecast.json?key=42b61dadb6a94661aa3193323241606&days=3&q=' + location, {mode: 'cors'});
     const forecastJson = await response.json();
-    return await forecastJson.forecast;
+    return forecastJson.forecast;
 }
 
 function processWeatherData(data) {
