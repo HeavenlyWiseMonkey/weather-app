@@ -17,12 +17,13 @@ body {
 
 .today {
     display: flex;
-    gap: 4rem;
+    margin-top: 0;
 }
 
-.searchArea {
+.header {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 1.5rem;
     padding: 2rem 0;
     background-color: #702963;
@@ -35,4 +36,35 @@ body {
 .footer {
     background-color: #808080;
     padding: 0.65rem;
+}
+
+.important {
+    border-right: 2px solid #808080;
+    flex: 1 1 0;
+    padding-right: 2rem;
+}
+
+.other {
+    flex: 1 1 0;
+    padding-left: 2rem;
+}
+
+.forecast>div {
+    padding: 0 2rem;
+    border: 2px solid #808080;
+}
+
+.low {
+    color: #808080;
+}
+
+.temperature {
+    font-size: 3rem;
+}
+
+.changeUnits {
+    color: #ffff;
+    position: relative;
+    left: 5rem;
+    cursor: pointer;
 }

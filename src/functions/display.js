@@ -21,7 +21,8 @@ async function changeTodayWeatherText(inputData) {
     windSpeed.textContent = weatherData.wind_kph;
 
     conditionIcon.src = weatherData.condition_icon;
-    // Add event listener in function
+    
+    return currentWeather;
 }
 
 async function showForecast(inputData) {
@@ -45,6 +46,8 @@ async function showForecast(inputData) {
         forecastDay[i].textContent = weekDay[nextForecastData.day];
         icon[i].src = nextForecastData.icon;
     }
+
+    return forecast;
 }
 
 export {changeTodayWeatherText, showForecast};
